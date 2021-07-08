@@ -6,7 +6,6 @@ import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
 import { routes } from './routes';
 
 @NgModule({
@@ -17,7 +16,6 @@ import { routes } from './routes';
     MatInputModule,
     MatButtonModule,
     FormsModule,
-    HttpClientModule,
     RouterModule.forChild(routes),
   ],
   // providers: [AuthService, AuthStore],
