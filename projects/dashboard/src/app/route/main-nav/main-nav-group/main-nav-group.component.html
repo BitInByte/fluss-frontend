@@ -1,2 +1,17 @@
-<a mat-list-item routerLink="/auth" routerLinkActive="active">Authenticate</a>
-<a mat-list-item routerLink="/articles" routerLinkActive="active">Articles</a>
+<a
+  *ngIf="!(authStore.token$ | async)"
+  mat-list-item
+  routerLink="/auth"
+  routerLinkActive="active"
+  >Authenticate</a
+>
+<a
+  *ngIf="authStore.token$ | async"
+  mat-list-item
+  routerLink="/articles"
+  routerLinkActive="active"
+  >Articles</a
+>
+<a *ngIf="authStore.token$ | async" mat-list-item (click)="onLogout()"
+  >Logout</a
+>

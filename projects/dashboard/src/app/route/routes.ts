@@ -1,7 +1,7 @@
 import { Routes } from '@angular/router';
 
 export const routes: Routes = [
-  { path: '', redirectTo: '/auth', pathMatch: 'full' },
+  { path: '', redirectTo: '/articles', pathMatch: 'full' },
   // Lazy Loading
   {
     path: 'auth',

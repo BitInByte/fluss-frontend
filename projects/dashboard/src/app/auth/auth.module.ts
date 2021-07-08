@@ -8,6 +8,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { routes } from './routes';
+import { AuthService } from './auth.service';
+import { AuthStore } from './auth.store';
 
 @NgModule({
   declarations: [AuthComponent],
@@ -20,6 +22,6 @@ import { routes } from './routes';
     HttpClientModule,
     RouterModule.forChild(routes),
   ],
-  // providers: [AuthService, AuthStore],
+  // providers: [AuthService],
 })
 export class AuthModule {}
