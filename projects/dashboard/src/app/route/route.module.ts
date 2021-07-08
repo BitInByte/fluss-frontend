@@ -10,12 +10,14 @@ import { MatListModule } from '@angular/material/list';
 import { MainNavGroupComponent } from './main-nav/main-nav-group/main-nav-group.component';
 import { PreloadAllModules, RouterModule } from '@angular/router';
 import { routes } from './routes';
-import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   declarations: [MainNavComponent, MainNavGroupComponent],
   imports: [
+<<<<<<< HEAD
     RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules }),
+=======
+>>>>>>> parent of bc6cdf4 (Added Loading)
     CommonModule,
     LayoutModule,
     MatToolbarModule,
@@ -23,7 +25,7 @@ import { SharedModule } from '../shared/shared.module';
     MatSidenavModule,
     MatIconModule,
     MatListModule,
-    SharedModule,
+    RouterModule.forRoot(routes),
   ],
   exports: [RouterModule, MainNavComponent],
 })

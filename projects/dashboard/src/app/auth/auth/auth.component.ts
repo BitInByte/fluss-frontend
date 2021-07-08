@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { AuthStore } from '../auth.store';
+// import { AuthStore } from '../auth.store';
 
 @Component({
   selector: 'app-auth',

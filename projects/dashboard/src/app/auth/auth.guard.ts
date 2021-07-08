@@ -8,7 +8,7 @@ import {
 } from '@angular/router';
 import { Observable } from 'rxjs';
 import { map, take } from 'rxjs/operators';
-import { AuthStore } from './auth.store';
+// import { AuthStore } from './auth.store';
 
 @Injectable({
   providedIn: 'root',
@@ -26,6 +26,7 @@ export class AuthGuard implements CanActivate {
     | boolean
     | UrlTree {
     console.log('Its activated!');
+    console.log(state.url);
     return true;
     // return this.authStore.isLoggedIn$.pipe(
     // // Unsubscribe automatically to this event
