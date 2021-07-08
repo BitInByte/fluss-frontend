@@ -10,10 +10,12 @@ import { MatListModule } from '@angular/material/list';
 import { MainNavGroupComponent } from './main-nav/main-nav-group/main-nav-group.component';
 import { RouterModule } from '@angular/router';
 import { routes } from './routes';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   declarations: [MainNavComponent, MainNavGroupComponent],
   imports: [
+    RouterModule.forRoot(routes),
     CommonModule,
     LayoutModule,
     MatToolbarModule,
@@ -21,7 +23,7 @@ import { routes } from './routes';
     MatSidenavModule,
     MatIconModule,
     MatListModule,
-    RouterModule.forRoot(routes),
+    SharedModule,
   ],
   exports: [RouterModule, MainNavComponent],
 })
