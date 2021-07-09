@@ -13,6 +13,11 @@ export const routes: Routes = [
       import('../articles/articles.module').then((m) => m.ArticlesModule),
   },
   {
+    path: 'categories',
+    loadChildren: () =>
+      import('../categories/categories.module').then((m) => m.CategoriesModule),
+  },
+  {
     path: '**',
     redirectTo: '/auth',
   },

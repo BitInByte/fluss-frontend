@@ -17,6 +17,10 @@ export class AuthStore {
 
   token$ = this.authSubject.asObservable();
 
+  get token(): string {
+    return this.authSubject.value;
+  }
+
   constructor(
     private authService: AuthService,
     private router: Router,
@@ -55,7 +59,8 @@ export class AuthStore {
         this.router.navigate(['/articles']);
         this.setLogoutTimer(expirationTimeMilliseconds);
       },
-      (error) => this.modalService.showError(error)
+      (error) => this.modalService.showError(error),
+      () => console.log('Auth Finalized!')
     );
   }
 

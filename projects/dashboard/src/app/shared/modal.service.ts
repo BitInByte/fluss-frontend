@@ -14,6 +14,14 @@ export class ModalService {
       finalError = error.error.message[0];
     }
 
+    if (!finalError && error.statusText) {
+      finalError = error.statusText;
+    }
+
+    if (!finalError) {
+      finalError = 'An Unknown Error Occurred!';
+    }
+
     this.snackBar.open(finalError, null, { duration: 2000 });
   }
 }

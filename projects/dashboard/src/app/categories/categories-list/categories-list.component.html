@@ -1,0 +1,12 @@
+<mat-list *ngIf="!(loadingService.loading$ | async)">
+  <mat-list-item *ngFor="let category of categoriesStore.categories$ | async">
+    <div>
+      {{ category.category }}
+    </div>
+    <div style="margin-left: auto">
+      <mat-icon class="edit" (click)="onEdit(category.id)">edit</mat-icon>
+      <mat-icon class="delete" (click)="onDelete(category.id)">delete</mat-icon>
+    </div>
+    <mat-divider></mat-divider>
+  </mat-list-item>
+</mat-list>

@@ -4,7 +4,7 @@ import { ArticlesComponent } from './articles.component';
 import { RouterModule } from '@angular/router';
 import { MatCardModule } from '@angular/material/card';
 import { MatListModule } from '@angular/material/list';
-import { routes } from './routes';
+import { routes } from './articles.routes';
 import { ArticlesListComponent } from './articles-list/articles-list.component';
 
 @NgModule({

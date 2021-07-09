@@ -12,6 +12,13 @@
   routerLinkActive="active"
   >Articles</a
 >
+<a
+  *ngIf="authStore.token$ | async"
+  mat-list-item
+  routerLink="/categories"
+  routerLinkActive="active"
+  >Categories</a
+>
 <a *ngIf="authStore.token$ | async" mat-list-item (click)="onLogout()"
   >Logout</a
 >
