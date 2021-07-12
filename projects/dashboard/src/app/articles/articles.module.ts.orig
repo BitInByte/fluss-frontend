@@ -2,6 +2,14 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ArticlesComponent } from './articles.component';
 import { RouterModule } from '@angular/router';
+<<<<<<< HEAD
+import { routes } from './routes';
+import { AuthModule } from '../auth/auth.module';
+
+@NgModule({
+  declarations: [ArticlesComponent],
+  imports: [CommonModule, RouterModule.forChild(routes), AuthModule],
+=======
 import { MatCardModule } from '@angular/material/card';
 import { MatListModule } from '@angular/material/list';
 import { routes } from './articles.routes';
@@ -15,5 +23,6 @@ import { ArticlesListComponent } from './articles-list/articles-list.component';
     MatCardModule,
     MatListModule,
   ],
+>>>>>>> dashboard/development-categories
 })
 export class ArticlesModule {}

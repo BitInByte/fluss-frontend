@@ -12,6 +12,12 @@ export const routes: Routes = [
     loadChildren: () =>
       import('../articles/articles.module').then((m) => m.ArticlesModule),
   },
+<<<<<<< HEAD
+  // {
+  // path: '**',
+  // redirectTo: '/auth',
+  // },
+=======
   {
     path: 'categories',
     loadChildren: () =>
@@ -21,4 +27,5 @@ export const routes: Routes = [
     path: '**',
     redirectTo: '/auth',
   },
+>>>>>>> dashboard/development-categories
 ];

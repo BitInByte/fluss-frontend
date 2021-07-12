@@ -10,8 +10,12 @@ body {
 }
 
 section {
-  width: 64rem;
+  max-width: 64rem;
   margin: 0 auto;
+
+  @media screen and (max-width: 65.625rem) {
+    margin: 0 1.5rem;
+  }
 }
 
 .spacer {

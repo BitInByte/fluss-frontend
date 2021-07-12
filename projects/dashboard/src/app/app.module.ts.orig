@@ -18,11 +18,15 @@ import { CoreModule } from './core/core.module';
     RouteModule,
     BrowserModule,
     BrowserAnimationsModule,
+<<<<<<< HEAD
+    HttpClientModule,
+=======
     RouteModule,
     HttpClientModule,
     MatSnackBarModule,
     SharedModule,
     CoreModule,
+>>>>>>> dashboard/development-categories
   ],
   providers: [],
   bootstrap: [AppComponent],

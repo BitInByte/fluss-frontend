@@ -1,7 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+<<<<<<< HEAD
+// import { AuthStore } from '../auth.store';
+=======
 import { LoadingService } from '../../shared/loading/loading.service';
 import { AuthStore } from '../auth.store';
+>>>>>>> dashboard/development-categories
 
 @Component({
   selector: 'app-auth',
@@ -9,18 +13,30 @@ import { AuthStore } from '../auth.store';
   styleUrls: ['./auth.component.scss'],
 })
 export class AuthComponent implements OnInit {
+<<<<<<< HEAD
+  // constructor(private authStore: AuthStore) {}
+  constructor() {}
+=======
   constructor(
     private authStore: AuthStore,
     public loadingService: LoadingService
   ) {}
+>>>>>>> dashboard/development-categories
 
   ngOnInit(): void {}
 
   onSubmit(form: NgForm): void {
     console.log(form);
+<<<<<<< HEAD
+    // this.authStore.login(
+    // form.controls['username'].value,
+    // form.controls['password'].value
+    // );
+=======
     this.authStore.login(
       form.controls['username'].value,
       form.controls['password'].value
     );
+>>>>>>> dashboard/development-categories
   }
 }

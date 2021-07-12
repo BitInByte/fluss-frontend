@@ -1,0 +1,22 @@
+<!-- <mat-list *ngIf="!(loadingService.loading$ | async)"> -->
+<ng-container *ngIf="categoriesStore.categories$ | async as categories">
+  <mat-list>
+    <!-- <mat-list-item *ngFor="let category of categoriesStore.categories$ | async"> -->
+    <app-group-list-item
+      *ngFor="let category of categories"
+      [title]="category.category"
+      [id]="category.id"
+      (editHandler)="onEdit($event)"
+      (deleteHandler)="onDelete($event)"
+    ></app-group-list-item>
+    <!-- <div> -->
+    <!-- {{ category.category }} -->
+    <!-- </div> -->
+    <!-- <div style="margin-left: auto"> -->
+    <!-- <mat-icon class="edit" (click)="onEdit(category.id)">edit</mat-icon> -->
+    <!-- <mat-icon class="delete" (click)="onDelete(category.id)">delete</mat-icon> -->
+    <!-- </div> -->
+    <!-- <mat-divider></mat-divider> -->
+    <!-- </mat-list-item> -->
+  </mat-list>
+</ng-container>

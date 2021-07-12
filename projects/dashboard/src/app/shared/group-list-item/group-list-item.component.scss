@@ -1,0 +1,16 @@
+.edit {
+  cursor: pointer;
+  transition: all 0.3s ease-in;
+  margin: 0 15px;
+  &:hover {
+    color: greenyellow;
+  }
+}
+
+.delete {
+  cursor: pointer;
+  transition: all 0.3s ease-in;
+  &:hover {
+    color: indianred;
+  }
+}

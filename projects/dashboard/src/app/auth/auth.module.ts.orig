@@ -6,10 +6,14 @@ import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { FormsModule } from '@angular/forms';
+<<<<<<< HEAD
+import { routes } from './routes';
+=======
 import { HttpClientModule } from '@angular/common/http';
 import { routes } from './auth.routes';
 import { AuthService } from './auth.service';
 import { AuthStore } from './auth.store';
+>>>>>>> dashboard/development-categories
 
 @NgModule({
   declarations: [AuthComponent],
