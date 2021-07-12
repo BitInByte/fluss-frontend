@@ -9,6 +9,7 @@ import { CategoriesListComponent } from './categories-list/categories-list.compo
 import { MatDividerModule } from '@angular/material/divider';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   declarations: [CategoriesComponent, CategoriesListComponent],
@@ -20,6 +21,7 @@ import { MatButtonModule } from '@angular/material/button';
     MatDividerModule,
     MatIconModule,
     MatButtonModule,
+    SharedModule,
   ],
 })
 export class CategoriesModule {}

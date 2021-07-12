@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { LoadingService } from '../../shared/loading/loading.service';
 import { AuthStore } from '../auth.store';
 
 @Component({
@@ -8,7 +9,10 @@ import { AuthStore } from '../auth.store';
   styleUrls: ['./auth.component.scss'],
 })
 export class AuthComponent implements OnInit {
-  constructor(private authStore: AuthStore) {}
+  constructor(
+    private authStore: AuthStore,
+    public loadingService: LoadingService
+  ) {}
 
   ngOnInit(): void {}
 

@@ -38,7 +38,7 @@ export class AuthStore {
       const timeLeft = token.expirationTime - Date.now();
       console.log('Time left: ', timeLeft);
       this.authSubject.next(token.token);
-      this.router.navigate(['/articles']);
+      // this.router.navigate(['/articles']);
       this.setLogoutTimer(timeLeft);
     }
   }

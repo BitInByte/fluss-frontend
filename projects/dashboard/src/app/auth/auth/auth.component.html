@@ -44,7 +44,7 @@
         color="primary"
         type="submit"
         style="width: 100%"
-        [disabled]="!authForm.valid"
+        [disabled]="!authForm.valid || (loadingService.loading$ | async)"
       >
         Submit
       </button>
