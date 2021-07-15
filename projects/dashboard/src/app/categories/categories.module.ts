@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { CategoriesComponent } from './categories.component';
 import { RouterModule } from '@angular/router';
 import { MatCardModule } from '@angular/material/card';
-import { MatListModule } from '@angular/material/list';
+// import { MatListModule } from '@angular/material/list';
 import { routes } from './categories.routes';
 import { CategoriesListComponent } from './categories-list/categories-list.component';
 import { MatDividerModule } from '@angular/material/divider';
@@ -17,7 +17,7 @@ import { SharedModule } from '../shared/shared.module';
     CommonModule,
     RouterModule.forChild(routes),
     MatCardModule,
-    MatListModule,
+    // MatListModule,
     MatDividerModule,
     MatIconModule,
     MatButtonModule,

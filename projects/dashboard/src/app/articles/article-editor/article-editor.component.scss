@@ -1,0 +1,110 @@
+.code-editor {
+  display: flex;
+  align-items: stretch;
+  margin-bottom: 1.5rem;
+
+  @media screen and (max-width: 50rem) {
+    flex-direction: column;
+  }
+
+  & div {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    white-space: nowrap;
+    overflow-x: scroll;
+    // height: 15rem;
+    // min-height: 15rem;
+
+    @media screen and (max-width: 50rem) {
+      &:first-child {
+        justify-content: flex-end;
+        padding: 0 1rem;
+        overflow: auto;
+      }
+    }
+  }
+}
+
+.desktop {
+  display: flex;
+  @media screen and (max-width: 50rem) {
+    display: none;
+  }
+}
+
+.mobile {
+  display: none;
+  @media screen and (max-width: 50rem) {
+    display: flex;
+  }
+}
+
+textarea {
+  width: 100%;
+  height: 100%;
+  height: 15rem;
+  // min-height: 10rem;
+  resize: vertical;
+  overflow-x: scroll;
+  white-space: nowrap;
+  font-size: 1.09375rem;
+}
+
+.description-small {
+  height: 6rem;
+}
+
+.controls {
+  padding: 1rem;
+  display: flex;
+  justify-content: flex-end;
+
+  & button:last-child {
+    margin-left: 1rem;
+  }
+}
+
+mat-form-field {
+  width: 90%;
+  height: 100%;
+  // display: flex;
+  // flex-direction: column;
+  // justify-content: center;
+  padding-top: 1.34375rem;
+}
+
+form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  @media screen and (max-width: 50rem) {
+    justify-content: center;
+  }
+
+  & > div:not(.code-editor, .controls) {
+    flex: 0.5;
+    // width: 50%;
+    display: flex;
+    justify-content: center;
+
+    // @media screen and (max-width: 50rem) {
+    // width: 100%;
+    // // flex: 1;
+    // }
+  }
+
+  // & > mat-form-field {
+  // padding-left: 1.3rem;
+  // // max-width: 25rem;
+  // max-width: 47%;
+  // flex: 1;
+
+  // @media screen and (max-width: 50rem) {
+  // flex: 1;
+  // max-width: 100%;
+  // padding: 0;
+  // margin: 0 auto;
+  // }
+  // }
+}

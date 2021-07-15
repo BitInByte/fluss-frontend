@@ -1,5 +1,12 @@
-<mat-list>
-  <mat-list-item> Item 1 </mat-list-item>
-  <mat-list-item> Item 2 </mat-list-item>
-  <mat-list-item> Item 3 </mat-list-item>
-</mat-list>
+<ng-container *ngIf="articlesStore.articles$ | async as articles">
+  <mat-list>
+    <app-group-list-item
+      *ngFor="let article of articles"
+      [title]="article.title"
+      [id]="article.id"
+      (editHandler)="onEdit($event)"
+      (deleteHandler)="onDelete($event)"
+    >
+    </app-group-list-item>
+  </mat-list>
+</ng-container>

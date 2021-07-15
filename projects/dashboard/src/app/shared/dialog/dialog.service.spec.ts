@@ -1,4 +1,5 @@
 import { TestBed } from '@angular/core/testing';
+import { MatDialog } from '@angular/material/dialog';
 
 import { DialogService } from './dialog.service';
 
@@ -6,7 +7,15 @@ describe('DialogService', () => {
   let service: DialogService;
 
   beforeEach(() => {
-    TestBed.configureTestingModule({});
+    const matDialogServiceSpy = jasmine.createSpyObj('MatDialog', ['open']);
+    TestBed.configureTestingModule({
+      // imports: [MatDialog],
+
+      providers: [
+        DialogService,
+        { provide: MatDialog, useValue: matDialogServiceSpy },
+      ],
+    });
     service = TestBed.inject(DialogService);
   });
 
