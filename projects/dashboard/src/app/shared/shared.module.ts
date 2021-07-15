@@ -11,9 +11,15 @@ import { GroupListItemComponent } from './group-list-item/group-list-item.compon
 import { MatIconModule } from '@angular/material/icon';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatListModule } from '@angular/material/list';
+import { TranscludeDirective } from './transclude.directive';
 
 @NgModule({
-  declarations: [LoadingComponent, DialogComponent, GroupListItemComponent],
+  declarations: [
+    LoadingComponent,
+    DialogComponent,
+    GroupListItemComponent,
+    TranscludeDirective,
+  ],
   imports: [
     CommonModule,
     FormsModule,
@@ -25,6 +31,12 @@ import { MatListModule } from '@angular/material/list';
     MatDividerModule,
     MatListModule,
   ],
-  exports: [LoadingComponent, MatDialogModule, GroupListItemComponent],
+  exports: [
+    LoadingComponent,
+    MatDialogModule,
+    GroupListItemComponent,
+    MatListModule,
+    TranscludeDirective,
+  ],
 })
 export class SharedModule {}

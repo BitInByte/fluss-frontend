@@ -8,8 +8,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { routes } from './auth.routes';
-import { AuthService } from './auth.service';
-import { AuthStore } from './auth.store';
+// import { AuthService } from './auth.service';
+// import { AuthStore } from './auth.store';
 
 @NgModule({
   declarations: [AuthComponent],

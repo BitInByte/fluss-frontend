@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DialogData } from '../../shared/dialog/dialog.component';
 import { DialogService } from '../../shared/dialog/dialog.service';
-import { LoadingService } from '../../shared/loading/loading.service';
+// import { LoadingService } from '../../shared/loading/loading.service';
 import { CategoriesStore } from '../categories.store';
 import { Category } from '../category.model';
 
@@ -13,7 +13,7 @@ import { Category } from '../category.model';
 export class CategoriesListComponent implements OnInit {
   constructor(
     public categoriesStore: CategoriesStore,
-    public loadingService: LoadingService,
+    // public loadingService: LoadingService,
     public dialog: DialogService
   ) {}
 

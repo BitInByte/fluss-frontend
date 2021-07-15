@@ -1,0 +1,306 @@
+<section>
+  <h1>Article Editor ({{ articleId ? "Edit" : "New" }})</h1>
+  <mat-card>
+    <form
+      #editorForm="ngForm"
+      (ngSubmit)="onSubmit(editorForm)"
+      style="padding: 0 0.4rem"
+    >
+      <!-- <mat-form-field appearance="fill" [style.width.rem]="30"> -->
+      <div>
+        <mat-form-field appearance="fill">
+          <mat-label>Title</mat-label>
+          <input
+            matInput
+            type="text"
+            required
+            name="title"
+            id="title"
+            ngModel
+          />
+        </mat-form-field>
+      </div>
+
+      <div
+        style="
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+        "
+      >
+        <h2>Categories</h2>
+        <mat-chip-list
+          name="chipList"
+          (selectionChange)="onSelect($event)"
+          selectable
+          multiple
+        >
+          <mat-chip
+            style="cursor: pointer"
+            *ngFor="let category of categories"
+            #c="matChip"
+            (click)="onSelect(c)"
+            [value]="category.id"
+            [selected]="categoriesSelected.includes(category.id)"
+            >{{ category.category }}</mat-chip
+          >
+        </mat-chip-list>
+      </div>
+
+      <div>
+        <mat-form-field appearance="fill">
+          <mat-label>Description</mat-label>
+          <textarea
+            matInput
+            name="description"
+            id="description"
+            rows="9"
+            required
+            appAllowUserTabs
+            ngModel
+          ></textarea>
+          <!-- <input matInput required name="description" id="description" /> -->
+        </mat-form-field>
+      </div>
+
+      <!-- <div class="code-editor desktop"> -->
+      <!-- <div> -->
+      <!-- <mat-form-field appearance="fill"> -->
+      <!-- <mat-label>CSS Code</mat-label> -->
+      <!-- <textarea -->
+      <!-- matInput -->
+      <!-- name="css-code" -->
+      <!-- id="css-code" -->
+      <!-- cdkTextareaAutosize -->
+      <!-- rows="9" -->
+      <!-- [(ngModel)]="cssCode" -->
+      <!-- required -->
+      <!-- appAllowUserTabs -->
+      <!-- ></textarea> -->
+      <!-- </mat-form-field> -->
+      <!-- </div> -->
+
+      <!-- <div> -->
+      <!-- <app-syntax-highlighter -->
+      <!-- language="css" -->
+      <!-- [content]="cssCode" -->
+      <!-- style="width: 100%; height: 100%" -->
+      <!-- ></app-syntax-highlighter> -->
+      <!-- </div> -->
+      <!-- </div> -->
+      <!-- <div class="code-editor mobile"> -->
+      <!-- <div> -->
+      <!-- <mat-icon style="text-align: right" (click)="onCssClick()" -->
+      <!-- >visibility</mat-icon -->
+      <!-- > -->
+      <!-- </div> -->
+      <!-- [> <div *ngIf="!isDartVisible; else elseDartElem"> <] -->
+      <!-- <div *ngIf="!isCssVisible"> -->
+      <!-- <mat-form-field appearance="fill" width="15rem"> -->
+      <!-- <mat-label>CSS Code</mat-label> -->
+      <!-- <textarea -->
+      <!-- matInput -->
+      <!-- name="css-code" -->
+      <!-- id="css-code" -->
+      <!-- cdkTextareaAutosize -->
+      <!-- rows="9" -->
+      <!-- [(ngModel)]="cssCode" -->
+      <!-- required -->
+      <!-- appAllowUserTabs -->
+      <!-- ></textarea> -->
+      <!-- </mat-form-field> -->
+      <!-- </div> -->
+
+      <!-- [> <ng-template #elseDartElem> <] -->
+      <!-- <div *ngIf="isCssVisible"> -->
+      <!-- <app-syntax-highlighter -->
+      <!-- language="css" -->
+      <!-- [content]="cssCode" -->
+      <!-- style="width: 100%; height: 100%" -->
+      <!-- ></app-syntax-highlighter> -->
+      <!-- </div> -->
+      <!-- [> </ng-template> <] -->
+      <!-- </div> -->
+
+      <app-article-editor-ide [codeContent]="cssCode" language="css">
+        <mat-form-field appearance="fill" *appTransclude>
+          <mat-label>CSS Code</mat-label>
+          <textarea
+            matInput
+            name="css-code"
+            id="css-code"
+            cdkTextareaAutosize
+            rows="9"
+            [(ngModel)]="cssCode"
+            required
+            appAllowUserTabs
+          ></textarea>
+        </mat-form-field>
+      </app-article-editor-ide>
+
+      <div>
+        <mat-form-field appearance="fill">
+          <mat-label>CSS Description</mat-label>
+          <textarea
+            class="description-small"
+            matInput
+            name="cssDesc"
+            id="cssDesc"
+            rows="6"
+            required
+            appAllowUserTabs
+            ngModel
+          ></textarea>
+        </mat-form-field>
+      </div>
+
+      <div>
+        <mat-form-field appearance="fill">
+          <mat-label>CSS Link</mat-label>
+          <input
+            matInput
+            required
+            name="cssLink"
+            id="cssLink"
+            type="url"
+            ngModel
+            pattern="https?://.+"
+          />
+        </mat-form-field>
+      </div>
+
+      <!-- <div class="code-editor desktop"> -->
+      <!-- <div> -->
+      <!-- <mat-form-field appearance="fill"> -->
+      <!-- <mat-label>Dart Code</mat-label> -->
+      <!-- [> <textarea <] -->
+      <!-- [> matInput <] -->
+      <!-- [> name="css-code" <] -->
+      <!-- [> id="css-code" <] -->
+      <!-- [> cdkTextareaAutosize <] -->
+      <!-- [> rows="9" <] -->
+      <!-- [> [(ngModel)]="dartCode" <] -->
+      <!-- [> required <] -->
+      <!-- [> #cssCodeRef <] -->
+      <!-- [> appAllowUserTabs <] -->
+      <!-- [> (keydown)="onKeyDown($event, cssCodeRef)" <] -->
+      <!-- [> ></textarea> <] -->
+      <!-- <textarea -->
+      <!-- matInput -->
+      <!-- name="dart-code" -->
+      <!-- id="dart-code" -->
+      <!-- cdkTextareaAutosize -->
+      <!-- rows="9" -->
+      <!-- [(ngModel)]="dartCode" -->
+      <!-- required -->
+      <!-- appAllowUserTabs -->
+      <!-- ></textarea> -->
+      <!-- </mat-form-field> -->
+      <!-- </div> -->
+
+      <!-- <div> -->
+      <!-- <app-syntax-highlighter -->
+      <!-- language="dart" -->
+      <!-- [content]="dartCode" -->
+      <!-- style="width: 100%; height: 100%" -->
+      <!-- ></app-syntax-highlighter> -->
+      <!-- </div> -->
+      <!-- </div> -->
+      <!-- <div class="code-editor mobile"> -->
+      <!-- <div> -->
+      <!-- <mat-icon style="text-align: right" (click)="onDartClick()" -->
+      <!-- >visibility</mat-icon -->
+      <!-- > -->
+      <!-- </div> -->
+      <!-- [> <div *ngIf="!isDartVisible; else elseDartElem"> <] -->
+      <!-- <div *ngIf="!isDartVisible"> -->
+      <!-- <mat-form-field appearance="fill" width="15rem"> -->
+      <!-- <mat-label>Dart Code</mat-label> -->
+      <!-- <textarea -->
+      <!-- matInput -->
+      <!-- name="dart-code" -->
+      <!-- id="dart-code" -->
+      <!-- cdkTextareaAutosize -->
+      <!-- rows="9" -->
+      <!-- [(ngModel)]="dartCode" -->
+      <!-- required -->
+      <!-- appAllowUserTabs -->
+      <!-- ></textarea> -->
+      <!-- </mat-form-field> -->
+      <!-- </div> -->
+
+      <!-- [> <ng-template #elseDartElem> <] -->
+      <!-- <div *ngIf="isDartVisible"> -->
+      <!-- <app-syntax-highlighter -->
+      <!-- language="dart" -->
+      <!-- [content]="dartCode" -->
+      <!-- style="width: 100%; height: 100%" -->
+      <!-- ></app-syntax-highlighter> -->
+      <!-- </div> -->
+      <!-- [> </ng-template> <] -->
+      <!-- </div> -->
+
+      <app-article-editor-ide [codeContent]="dartCode" language="dart">
+        <mat-form-field appearance="fill" *appTransclude>
+          <mat-label>Dart Code</mat-label>
+          <textarea
+            matInput
+            name="dart-code"
+            id="dart-code"
+            cdkTextareaAutosize
+            rows="9"
+            [(ngModel)]="dartCode"
+            required
+            appAllowUserTabs
+          ></textarea>
+        </mat-form-field>
+      </app-article-editor-ide>
+
+      <div>
+        <mat-form-field appearance="fill">
+          <mat-label>Flutter Description</mat-label>
+          <textarea
+            class="description-small"
+            matInput
+            rows="6"
+            name="flutterDesc"
+            id="flutterDesc"
+            required
+            appAllowUserTabs
+            ngModel
+          ></textarea>
+        </mat-form-field>
+      </div>
+
+      <div>
+        <mat-form-field appearance="fill">
+          <mat-label>Flutter Link</mat-label>
+          <input
+            matInput
+            type="url"
+            required
+            name="flutterLink"
+            id="flutterLink"
+            ngModel
+            pattern="https?://.+"
+          />
+        </mat-form-field>
+      </div>
+
+      <div class="controls">
+        <button
+          mat-flat-button
+          color="primary"
+          type="submit"
+          [disabled]="!editorForm.valid || categoriesSelected.length === 0"
+        >
+          Submit
+        </button>
+        <button mat-flat-button color="warn" type="submit" (click)="onCancel()">
+          Cancel
+        </button>
+      </div>
+    </form>
+  </mat-card>
+</section>

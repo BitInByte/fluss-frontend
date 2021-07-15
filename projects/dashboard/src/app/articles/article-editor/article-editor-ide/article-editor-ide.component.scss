@@ -1,0 +1,41 @@
+.code-editor {
+  display: flex;
+  align-items: stretch;
+  margin-bottom: 1.5rem;
+
+  @media screen and (max-width: 50rem) {
+    flex-direction: column;
+  }
+
+  & div {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    white-space: nowrap;
+    overflow-x: scroll;
+    // height: 15rem;
+    // min-height: 15rem;
+
+    @media screen and (max-width: 50rem) {
+      &:first-child {
+        justify-content: flex-end;
+        padding: 0 1rem;
+        overflow: auto;
+      }
+    }
+  }
+}
+
+.desktop {
+  display: flex;
+  @media screen and (max-width: 50rem) {
+    display: none;
+  }
+}
+
+.mobile {
+  display: none;
+  @media screen and (max-width: 50rem) {
+    display: flex;
+  }
+}

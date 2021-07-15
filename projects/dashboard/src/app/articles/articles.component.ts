@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-articles',
@@ -6,9 +7,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./articles.component.scss'],
 })
 export class ArticlesComponent implements OnInit {
-  constructor() {}
+  constructor(private router: Router, private route: ActivatedRoute) {}
 
-  ngOnInit(): void {
-    console.log('Loaded');
+  ngOnInit(): void {}
+
+  onClick(): void {
+    console.log('Pushing new page');
+    this.router.navigate(['new'], { relativeTo: this.route });
   }
 }
