@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { LoadingService } from '../../shared/loading/loading.service';
 import { AuthStore } from '../auth.store';
@@ -9,6 +9,7 @@ import { AuthStore } from '../auth.store';
   styleUrls: ['./auth.component.scss'],
 })
 export class AuthComponent implements OnInit {
+  @ViewChild('authForm', { static: false }) authForm: NgForm;
   constructor(
     private authStore: AuthStore,
     public loadingService: LoadingService
@@ -18,9 +19,11 @@ export class AuthComponent implements OnInit {
 
   onSubmit(form: NgForm): void {
     console.log(form);
-    this.authStore.login(
-      form.controls['username'].value,
-      form.controls['password'].value
-    );
+    if (form.valid) {
+      this.authStore.login(
+        form.controls['username'].value,
+        form.controls['password'].value
+      );
+    }
   }
 }
